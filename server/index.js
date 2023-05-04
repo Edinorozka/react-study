@@ -4,11 +4,9 @@ import { dbConnect } from './db/db.js';
 
 import mainRoute from './routes/mainRoute.js'
 import postsRoute from './routes/postRoute.js'
-
-
+import {PORT} from "./config.js";
 
 const app = express();
-const PORT = 3900
 
 app.use(express.urlencoded({ extended: true }));
 

@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
+import {MONGODB_URL} from "../config.js";
 
-const mongodbUrl = "mongodb://localhost/"
-const dbName = "techDb"
+
 
 export const dbConnect = async () => {
     mongoose
-        .connect(`${mongodbUrl}${dbName}`,{
+        .connect(MONGODB_URL,{
             useNewUrlParser: true,
             useUnifiedTopology: true,
             family: 4,
@@ -14,12 +14,4 @@ export const dbConnect = async () => {
         .then(() => console.log('Успешное подключение к БД'))
         // eslint-disable-next-line no-console
         .catch(() => console.log('Ошибка подключения к базе данных'));
-
-    /*try {
-        await mongoose.connect(`${mongodbUrl}${dbName}`)
-        console.log("\x1b[32m", '[DB] Connect success')
-    } catch (error) {
-        console.log("error get", error);
-        //console.log("\x1b[31m", '[DB] Connect error')
-    }*/
 }

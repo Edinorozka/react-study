@@ -5,9 +5,10 @@ import {Navbar} from "./Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
 import {Posts} from "./PostsPage/Posts";
 import {PostPage} from "./PostPage/PostPage";
-import {useDispatch, useSelector} from "react-redux";
-import {getPosts} from "../store/actions/postsActions";
-import {Spin} from "antd";
+import {useDispatch} from "react-redux";
+import {Login} from "./Login/Login";
+import Exit from "./Exit/Exit";
+import {Registration} from "./Registration/Registration";
 
 function App() {
 
@@ -40,7 +41,6 @@ function App() {
         React.useEffect(()=>{
             getData();
             getPost();
-            //dispatch(getPosts)
         }, [])
 
         return (
@@ -77,8 +77,9 @@ function App() {
             <Route path={'/'} element={<Home />}/>
             <Route path={'/posts'} element={<Posts />}/>
             <Route path={'/post/:id'} element={<PostPage />}/>
-            <Route path={'/entrance'} element={<Posts />}/>
-            <Route path={'/registration'} element={<Posts />}/>
+            <Route path={'/login'} element={<Login />}/>
+            <Route path={'/registration'} element={<Registration />}/>
+            <Route path={'/exit'} element={<Exit />}/>
             <Route path={'*'} element={<NotFoud />}/>
         </Routes>
 

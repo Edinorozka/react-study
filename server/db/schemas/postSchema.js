@@ -6,8 +6,7 @@ const Post = new mongoose.Schema({
     full_desc: { type: String },
     create_date: { type: Date,
                     default: Date.now},
-    author: { type: String},
-    status: { type: Boolean}
+    author: { type: mongoose.Types.ObjectId, ref: 'User' }
 })
 
 const model = mongoose.model('Post', Post)

@@ -3,7 +3,7 @@ const initState = {
     success: false,
     errMsg: '',
     userId: '',
-    post: {},
+    user: {},
     UserLogin: false,
 }
 
@@ -12,7 +12,7 @@ export const userReducer = (state = initState, action) => {
         case 'User_success':
             return {...state, ...action }
         case 'User_onfetch':
-            return {...state, post: {}, loading: true, success: false }
+            return {...state, user: {}, loading: true, success: false }
         case 'User_error':
             return {...state, ...action }
         case 'SET_USER_LOGIN':

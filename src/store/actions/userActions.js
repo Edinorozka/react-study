@@ -38,7 +38,7 @@ export const loadingUser = async (dispatch, data) => {
                 .then(res => {
                     if (res) {
                         localStorage.setItem('token', res.token)
-                        dispatch({type: 'User_success', UserLogin: true, loading: false, success: true})
+                        dispatch({type: 'User_success', UserLogin: true, loading: false, success: true, user: res.user})
                     }
                 })
         }, 0)

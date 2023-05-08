@@ -5,7 +5,9 @@ const Post = new mongoose.Schema({
     short_desc: { type: String },
     full_desc: { type: String },
     create_date: { type: Date,
-                    default: Date.now}
+                    default: Date.now},
+    author: { type: String},
+    status: { type: Boolean}
 })
 
 const model = mongoose.model('Post', Post)

@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {Menu, Layout, Button} from 'antd'
+import React from 'react'
+import {Menu, Layout, List} from 'antd'
 import { Link } from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux";
 import {ButtonUI} from "../ui/ButtonUI/ButtonUI";
@@ -44,7 +44,7 @@ const navItemsLogin = [
 
 export const Navbar = (props) => {
     const dispatch = useDispatch();
-    const {UserLogin} = useSelector(state => state.user)
+    const {UserLogin, user} = useSelector(state => state.user)
     const ExitMethod = () => {
         localStorage.removeItem('token')
         dispatch(exitUser)
@@ -58,7 +58,8 @@ export const Navbar = (props) => {
                   <>
                       <Menu mode = "horizontal" items={navItemsLogin}/>
                       <div style={{margin: '10px'}}>
-                      <ButtonUI onClick={ExitMethod} label='Exit' />
+                          <List>{user.name}</List>
+                        <ButtonUI onClick={ExitMethod} label='Exit' />
                       </div>
                   </>
 
